@@ -1,0 +1,8 @@
+git add . == "To scan all files within repository/directory and adds them"
+git commit -m "Message" == "Sets a message for the README file before pushing new files/updates"
+git push == "Uploads all added files within repository/directory"
+
+git status == "Shows the current status of your current git inventory"
+
+git pull == "Reads the Github Repository and copies the latest files uploaded on the website"
+git fetch == "Same action as pull"
