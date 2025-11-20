@@ -3,7 +3,7 @@
 Delivery Route Planning & Package Tracking System — Client Problem Statement
 Client Information
 
-Client Name: Henry moreno
+Client Name: Henry Moreno
 Position: Logistics & Distribution Supervisor
 Organization: FreshRoute Logistics
 Type: Medium-sized delivery & courier company (operating 60 delivery routes daily)
