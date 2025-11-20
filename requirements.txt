@@ -27,4 +27,9 @@ Requirements:
         - optional: proof of delivery (note)
     
     > Reporting
-        - 
+        - total packages delivered per day
+        - delivery performance (rating/star)
+        - delayed deliveries (reason)
+        - fuel usage based on route (per km)
+        - dictionary of problematic delivery addresses
+        - reports should exported to CSV/PDF
