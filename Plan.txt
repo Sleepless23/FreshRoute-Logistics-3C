@@ -13,3 +13,49 @@ Efficient Route Calculation -
 Package inventory management/assignment - 
 Structurized Reporting for delivery performance - 
 
+Classes to be made:
+✔ **1. Package Registration**
+
+Register a new package
+
+Fields: sender, recipient name, address, phone number, package ID, weight, category
+
+Assign package to a delivery route
+
+Edit or delete package details
+
+✔ **2. Route Management**
+
+Create daily delivery routes
+
+Assign packages to routes
+
+Assign driver to each route
+
+View list of packages per route
+
+✔ **3. Delivery Tracking**
+
+Driver updates status:
+
+Pending → Out for Delivery → Delivered
+
+Timestamp each update
+
+Optionally capture simple proof of delivery (text note)
+
+✔ **4. Reporting**
+
+Generate reports such as:
+
+Packages delivered per day
+
+Driver delivery performance
+
+Delayed deliveries
+
+Fuel usage estimates per route (optional)
+
+Repeat problematic delivery addresses
+
+Reports should be exportable as CSV or PDF.
