@@ -6,3 +6,9 @@ git status == "Shows the current status of your current git inventory"
 
 git pull == "Reads the Github Repository and copies the latest files uploaded on the website"
 git fetch == "Same action as pull"
+
+Create your own branch
+git branch <branch_name> or git checkout -b <branch_name>
+
+To access different branches
+git checkout <branch_name>
