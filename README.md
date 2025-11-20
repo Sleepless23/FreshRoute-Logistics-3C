@@ -6,7 +6,7 @@ Client Information
 Client Name: Henry moreno
 Position: Logistics & Distribution Supervisor
 Organization: FreshRoute Logistics
-Type: Medium-sized delivery & courier company (operating 60 delivery routes daily)
+<!-- Type: Medium-sized delivery & courier company (operating 60 delivery routes daily) -->
 
 📌 **Background**
 

@@ -1,0 +1,15 @@
+SDLC:
+1. Planning - Brainstorm classes/function on how to resolve "Current Problems"
+2. Defining - Enumerate tools/softwares needed to solve problems of the product
+3. Designing - Create an organized structure by using classes or functions from individual members of the group
+4. Building - Assign classes to be made from individual members
+5. Testing - Confirm with other members using their own branch in GIT
+7. Deployment - Upload the final product in the main branch
+
+Design Phase:
+Automated Package Recording - 
+Efficient Route Calculation - 
+*Improve tracking progress* - 
+Package inventory management/assignment - 
+Structurized Reporting for delivery performance - 
+
