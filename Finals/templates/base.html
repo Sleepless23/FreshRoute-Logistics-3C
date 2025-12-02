@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ '/' }}">Home</a>
+        <a href="{{ '/login' }}">Login</a>
+        <a href="{{ '/signup' }}">SignUp</a>
+        <a href="{{ '/form' }}">Forms</a>
+        <a href="{{ '/report' }}">Reports</a>
+        <a href="{{ '/route' }}">Route</a>
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

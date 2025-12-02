@@ -1,0 +1,14 @@
+{% include 'base.html' %}
+{% block content %}
+<title>{% block title %}Forms{% endblock %}</title>
+<!--For loop prints all the packages that has been approved in package reports-->
+<body>
+    {% for routedpackage in routedpackages %}
+        <form method="POST">
+        {{ routedpackage }}
+        <select id="deliverers" name="deliverers">{% for deliverer in deliverers %}{{ deliverer }}{% endfor %}</select>
+        <button type="submit" id="submit" name="submit">Assign</button>
+        </form>
+    {% endfor %}
+</body>
+{% endblock %}

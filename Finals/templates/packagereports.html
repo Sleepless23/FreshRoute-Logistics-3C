@@ -1,0 +1,14 @@
+{% include 'base.html' %}
+{% block content %}
+<title>{% block title %}Forms{% endblock %}</title>
+<!--For loop prints all the packages created in package form-->
+<body>
+    {% for package in packages %}
+        <form method="POST">
+        {{ package }}
+        <input type="text" id="packageRoute" name="packageRoute" placeholder="Set Route for Package" />
+        <button type="submit" id="submit" name="submit">Submit</button>
+        </form>
+    {% endfor %}
+</body>
+{% endblock %}
