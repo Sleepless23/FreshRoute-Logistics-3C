@@ -20,3 +20,12 @@ Freshroute-Logistics-3C
     data.json
     main.py
     user.py
+
+Needed now:
+admin_menu - view all packages, view all routes, view drivers/dispatcher, generate reports
+driver_menu - view assigned packages, update package status
+
+NOTE: PROMPT THIS FIRST TO RUN!
+
+cd <folder_name>
+python main.py
