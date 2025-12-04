@@ -11,7 +11,7 @@ def save_data(data):
         json.dump(data, file, indent=4)
         
 def register_package():
-    print("REGISTER PACKAGE")
+    print(f"\nREGISTER PACKAGE{'-' * 100}")
     package_id = input("Package ID: ")
     sender_name = input("Sender Name: ")
     recipient = input("Recepient Name: ")
@@ -59,7 +59,7 @@ def view_packages():
         print(f"Status: {package['status']}, Route: {package['route_id']}, Driver: {package['driver']}\n{'-' * 100}")
         
 def view_routes():
-    print(f"LIST OF ROUTES\n{'-' * 100}")
+    print(f"\nLIST OF ROUTES\n{'-' * 100}")
     data = load_data()
 
     if not data["routes"]:
@@ -71,7 +71,7 @@ def view_routes():
         print(f"Packages: {', '.join(route['packages']) if route['packages'] else 'No packages assigned.'}\n{'-' * 100}")
 
 def create_route():
-    print("CREATE ROUTE")
+    print(f"\nCREATE ROUTE\n{'-' * 100}")
     route_name = input("Route Name: ")
     data = load_data()
     
@@ -91,7 +91,7 @@ def create_route():
     print("Route created successfully!\n")
 
 def assign_package_to_route():
-    print("Assign package to route")
+    print(f"\nAssign package to route\n{'-' * 100}")
     data = load_data()
     
     package_id = input("Package ID: ")
@@ -127,7 +127,7 @@ def assign_package_to_route():
     print("Package assigned to this route successfully!")
     
 def assign_driver_to_route():
-    print("ASSIGN DRIVER TO ROUTE")
+    print(f"\nASSIGN DRIVER TO ROUTE\n{'-' * 100}")
     data = load_data()
     route_name = input("Route Name: ")
     driver_name = input("Driver Name: ")
@@ -170,7 +170,7 @@ def assign_driver_to_route():
     
 def dispatcher_menu(user):
     while True:
-        print(f"\nDispatcher Menu ({user.username})")
+        print(f"\nDispatcher Menu ({user.username})\n{'-' * 100}")
         dis_menu = ["Register Package", "View All Packages", "Create Route", "View All Routes", "Assign Package to Route", "Assign Driver to Route", "Logout"]
         for i, d in zip(range(7), dis_menu):
             print(f"{i + 1}. {d}")
