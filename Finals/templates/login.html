@@ -1,0 +1,17 @@
+{% include 'base.html' %}
+{% block content %}
+<title>{% block title %}Login{% endblock %}</title>
+
+<body>
+    <form method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter username"/>
+        
+        <label for="password1">Password:</label>
+        <input type="password" id="password1" name="password1" placeholder="Enter Password"/>
+
+        <button type="submit" id="submit" name="submit">Sign Up</button>
+        <p>Don't have an account? <a href="{{ '/signup' }}" id="login">SignUp</a></p>
+    </form>
+</body>
+{% endblock %}
