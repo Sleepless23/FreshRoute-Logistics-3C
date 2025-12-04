@@ -1,0 +1,76 @@
+{
+    "users": [
+        {
+            "username": "Charles",
+            "password": "charles123",
+            "role": "dispatcher"
+        },
+        {
+            "username": "admin",
+            "password": "admin",
+            "role": "admin"
+        },
+        {
+            "username": "Baby Driver",
+            "password": "driver123",
+            "role": "driver"
+        },
+        {
+            "username": "Sean",
+            "password": "sean123",
+            "role": "driver"
+        },
+        {
+            "username": "test",
+            "password": "test123",
+            "role": "dispatcher"
+        }
+    ],
+    "packages": [
+        {
+            "package_id": "1",
+            "sender_name": "Sean",
+            "recipient": "Patrice",
+            "phone": "099123123",
+            "address": "MCC",
+            "weight": 2.5,
+            "category": "fragile",
+            "status": "Pending",
+            "route_id": "Mabalacat",
+            "driver": "Baby Driver"
+        },
+        {
+            "package_id": "2",
+            "sender_name": "Jeff",
+            "recipient": "Rey",
+            "phone": "09090009090",
+            "address": "Balibago",
+            "weight": 50.0,
+            "category": "fragile",
+            "status": "Pending",
+            "route_id": "Quickie",
+            "driver": null
+        }
+    ],
+    "routes": [
+        {
+            "name": "Mabalacat",
+            "driver": "Baby Driver",
+            "packages": [
+                "1"
+            ]
+        },
+        {
+            "name": "Quickie",
+            "driver": null,
+            "packages": [
+                "2"
+            ]
+        },
+        {
+            "name": "SlowNSteady",
+            "driver": "Sean",
+            "packages": []
+        }
+    ]
+}
