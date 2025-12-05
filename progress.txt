@@ -1,0 +1,31 @@
+user.py - handles register and login logic and saves/check in json (data.json)
+main.py - the main app which has the cli based of login and register, added login redirection based on role and run the module of it
+modules: admin_menu.py, dispatcher, and driver.
+only added dispatcher_menu.py
+
+dispatcher_menu.py 
+Register Package - register package details (package id, sender name, recipient, phone, address, weight, and category)
+View Packages - open the json file and retrieve data
+Create Route - create a route for delivery route
+Assign Package to Route - assign package using id and route name
+Assign Driver to Route - assign driver using driver name, package id, and route name
+
+File Structure:
+Freshroute-Logistics-3C
+    > modules
+        admin_menu.py
+        dispatcher_menu.py
+        driver_menu.py
+
+    data.json
+    main.py
+    user.py
+
+Needed now:
+admin_menu - view all packages, view all routes, view drivers/dispatcher, generate reports
+driver_menu - view assigned packages, update package status
+
+NOTE: PROMPT THIS FIRST TO RUN!
+
+cd <folder_name>
+python main.py
