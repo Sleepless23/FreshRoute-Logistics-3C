@@ -1,9 +1,9 @@
 # Sean's Branch
 ---
-## [Update Log:](#Changes:)
+## [Update Log:](#Changes)
 ## [12/6/2025 Added MorgsBranch functions to admin_menu.py and driver_menu.py](#1262025)
 ## [12/5/2025 Pushed Charles' files from Selrach Branch](#1252025)
-## Changes:
+## Changes
 ---
 ### 12/6/2025
 ---
