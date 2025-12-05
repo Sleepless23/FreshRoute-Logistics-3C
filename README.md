@@ -2,7 +2,73 @@
 ---
 ## [Update Log:](#Updates)
 ## [Pushed Charles' files from Selrach Branch](#UpdatesHeader)
-**Modified Files:**
+**Changes**
+---
+***12/6/2025***
+---
+- **Added** functions from **<mark>MorgsBranch</mark>** to <mark>*admin_menu.py*</mark> and <mark>*driver_menu.py*</mark>
+- **Customized String Colorization** for **readability**, easier to distinguish menu options for all .py files
+---
+### MorgsBranch (Save Data)
+> ```
+> def save_data(data):
+>    with open(data_file, "w") as file:
+>        json.dump(data, file, indent=4)
+> ```
+### MorgsBranch (View Assigned Packages)
+> ```
+> def view_assigned_packages(driver_name):
+>    print("\n=== YOUR ASSIGNED PACKAGES ===")
+>    data = load_data()
+>    
+>    assigned_packages = [p for p in data["packages"] if p["driver"] == driver_name]
+>    
+>    if not assigned_packages:
+>        print("No packages assigned to you yet.")
+>        return
+>    
+>    for package in assigned_packages:
+>        print(f"ID: {package['package_id']}, Sender: {package['sender_name']}, Recipient: {package['recipient']}")
+>        print(f"Address: {package['address']}, Phone: {package['phone']}")
+>        print(f"Weight: {package['weight']}kg, Category: {package['category']}")
+>        print(f"Status: {package['status']}, Route: {package['route_id']}")
+>        print("-" * 40)
+> ```
+### MorgsBranch (Update Package)
+> ```
+> def update_package_status(driver_name):
+>    data = load_data()
+>    package_id = input("Enter Package ID to update: ")
+>    
+>    package = None
+>    for p in data["packages"]:
+>        if p["package_id"] == package_id and p["driver"] == driver_name:
+>            package = p
+>            break
+>    
+>    if not package:
+>        print("Package not found or not assigned to you.")
+>        return
+>    
+>    print(f"Current Status: {package['status']}")
+>    print("1. Pending")
+>    print("2. In Transit")
+>    print("3. Delivered")
+>    status_choice = input("Select new status: ")
+>    
+>    status_map = {"1": "Pending", "2": "In Transit", "3": "Delivered"}
+>    
+>    if status_choice not in status_map:
+>        print("Invalid choice.")
+>        return
+>    
+>    package["status"] = status_map[status_choice]
+>    save_data(data)
+>    print(f"Package {package_id} status updated to {package['status']}.")
+> ```
+---
+***12/5/2025***
+---
 - **Adjusted** print command in main.py
 - **Adjusted** method *view_packages()* and **improved** print readability for every menu for <mark>main.py</mark> and <mark>dispatcher_menu.py</mark>
 - **Added** method *view_routes()* in <mark>dispatcher_menu.py</mark>
