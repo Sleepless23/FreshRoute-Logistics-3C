@@ -5,7 +5,7 @@
 ## [12/5/2025 Pushed Charles' files from Selrach Branch](#Update1.0)
 ## [Changes:](#Changes)
 ---
-***12/6/2025***
+### [12/6/2025](#Update1.1)
 ---
 - **Added** functions from **<mark>MorgsBranch</mark>** to <mark>*admin_menu.py*</mark> and <mark>*driver_menu.py*</mark>
 - **Customized String Colorization** for **readability**, easier to distinguish menu options for all .py files
@@ -68,7 +68,7 @@
 >    print(f"Package {package_id} status updated to {package['status']}.")
 > ```
 ---
-***12/5/2025***
+### [12/5/2025](#Update1.0)
 ---
 - **Adjusted** print command in main.py
 - **Adjusted** method *view_packages()* and **improved** print readability for every menu for <mark>main.py</mark> and <mark>dispatcher_menu.py</mark>
