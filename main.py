@@ -4,7 +4,7 @@ from modules.dispatcher_menu import dispatcher_menu
 from modules.driver_menu import driver_menu
 
 def register():
-    print(f"\nREGISTER STAFF ACCOUNT\n{'-' * 100}")
+    print(f"\n\033[44mREGISTER STAFF ACCOUNT\033[0m\n{'-' * 80}")
     
     username = input("Enter username: ")
     password = input("Enter password: ")
@@ -14,7 +14,7 @@ def register():
         print("Password and Confirmed aren't the same!\n")
         return
     
-    print(f"\nSelect role:\n{'-' * 100}")
+    print(f"\nSelect role:\n{'-' * 80}")
     register_menu = ['Admin', 'Dispatcher', 'Driver']
     for i, r in zip(range(4), register_menu):
         print(f"{i + 1}. {r}")
@@ -22,24 +22,24 @@ def register():
     role_input = int(input("Role: "))
 
     roles = {
-        1: "admin",
-        2: "dispatcher",
-        3: "driver"
+        1: "\033[91madmin\033[0m",
+        2: "\033[93mdispatcher\033[0m",
+        3: "\033[92mdriver\033[0m"
     }
     
     if role_input not in roles:
-        print("Invalid role selected.\n")
+        print("\033[31mInvalid role selected.\033[0m\n")
         return
     
     role = roles[role_input]
     
     if add_user(username, password, role):
-        print("Account created successfully!\n")
+        print("\033\[32mAccount created successfully!\033[0m\n")
     else:
         print("Username is taken!\n")
         
 def login():
-    print(f"\nLOGIN\n{'-' * 100}")
+    print(f"\n\033[42mLOGIN\033[0m\n{'-' * 80}")
     username = input("Enter your username: ")
     password = input("Enter your password: ")
     
@@ -49,17 +49,17 @@ def login():
         print("Invalid credentials.\n")
         return None
     
-    print(f"\nWelcome, {user.username}! (Role: {user.role})")
+    print(f"\nWelcome, \033[92m{user.username}\033[0m! (Role: \033[95m{user.role}\033[0m)")
     return user
 
 def main():
     while True:
-        print(f"\nFreshRoute Logistics System\n{'-' * 100}")
-        login_menu = ['Login', 'Register', 'Exit']
+        print(f"\n\033[43mFreshRoute Logistics System\033[0m\n{'-' * 80}")
+        login_menu = ['\033[32mLogin\033[0m', '\033[34mRegister\033[0m', '\033[31mExit\033[0m']
         for i, m in zip(range(4), login_menu):
             print(f"{i + 1}. {m}")
         
-        choice = int(input("Enter your choice: "))
+        choice = int(input(f"{'-' * 80}\nEnter your choice: "))
         
         match choice:
             case 1:

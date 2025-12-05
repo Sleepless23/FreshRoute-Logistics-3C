@@ -11,7 +11,7 @@ def save_data(data):
         json.dump(data, file, indent=4)
         
 def register_package():
-    print(f"\nREGISTER PACKAGE{'-' * 100}")
+    print(f"\nREGISTER PACKAGE{'-' * 80}")
     package_id = input("Package ID: ")
     sender_name = input("Sender Name: ")
     recipient = input("Recepient Name: ")
@@ -45,7 +45,7 @@ def register_package():
     print("Package registered successfully!")
     
 def view_packages():
-    print(f"\nLIST OF PACKAGES\n{'-' * 100}")
+    print(f"\nLIST OF PACKAGES\n{'-' * 80}")
     data = load_data()
     
     if not data["packages"]:
@@ -56,10 +56,10 @@ def view_packages():
         print(f"ID: {package['package_id']}, Sender: {package['sender_name']}, Recipient: {package['recipient']}")
         print(f"Address: {package['address']}, Phone: {package['phone']}")
         print(f"Weight: {package['weight']}kg, Category: {package['category']}")
-        print(f"Status: {package['status']}, Route: {package['route_id']}, Driver: {package['driver']}\n{'-' * 100}")
+        print(f"Status: {package['status']}, Route: {package['route_id']}, Driver: {package['driver']}\n{'-' * 80}")
         
 def view_routes():
-    print(f"\nLIST OF ROUTES\n{'-' * 100}")
+    print(f"\nLIST OF ROUTES\n{'-' * 80}")
     data = load_data()
 
     if not data["routes"]:
@@ -68,10 +68,10 @@ def view_routes():
     
     for route in data["routes"]:
         print(f"Route Name: {route['name']}, Driver: {route['driver']}")
-        print(f"Packages: {', '.join(route['packages']) if route['packages'] else 'No packages assigned.'}\n{'-' * 100}")
+        print(f"Packages: {', '.join(route['packages']) if route['packages'] else 'No packages assigned.'}\n{'-' * 80}")
 
 def create_route():
-    print(f"\nCREATE ROUTE\n{'-' * 100}")
+    print(f"\nCREATE ROUTE\n{'-' * 80}")
     route_name = input("Route Name: ")
     data = load_data()
     
@@ -91,7 +91,7 @@ def create_route():
     print("Route created successfully!\n")
 
 def assign_package_to_route():
-    print(f"\nAssign package to route\n{'-' * 100}")
+    print(f"\nAssign package to route\n{'-' * 80}")
     data = load_data()
     
     package_id = input("Package ID: ")
@@ -127,7 +127,7 @@ def assign_package_to_route():
     print("Package assigned to this route successfully!")
     
 def assign_driver_to_route():
-    print(f"\nASSIGN DRIVER TO ROUTE\n{'-' * 100}")
+    print(f"\nASSIGN DRIVER TO ROUTE\n{'-' * 80}")
     data = load_data()
     route_name = input("Route Name: ")
     driver_name = input("Driver Name: ")
@@ -170,7 +170,7 @@ def assign_driver_to_route():
     
 def dispatcher_menu(user):
     while True:
-        print(f"\nDispatcher Menu ({user.username})\n{'-' * 100}")
+        print(f"\nDispatcher Menu ({user.username})\n{'-' * 80}")
         dis_menu = ["Register Package", "View All Packages", "Create Route", "View All Routes", "Assign Package to Route", "Assign Driver to Route", "Logout"]
         for i, d in zip(range(7), dis_menu):
             print(f"{i + 1}. {d}")
