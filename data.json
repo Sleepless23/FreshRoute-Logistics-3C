@@ -1,0 +1,42 @@
+{
+    "users": [
+        {
+            "username": "Charles",
+            "password": "charles123",
+            "role": "dispatcher"
+        },
+        {
+            "username": "admin",
+            "password": "admin",
+            "role": "admin"
+        },
+        {
+            "username": "Baby Driver",
+            "password": "driver123",
+            "role": "driver"
+        }
+    ],
+    "packages": [
+        {
+            "package_id": "1",
+            "sender_name": "Sean",
+            "recipient": "Patrice",
+            "phone": "099123123",
+            "address": "MCC",
+            "weight": 2.5,
+            "category": "fragile",
+            "status": "Pending",
+            "route_id": "Mabalacat",
+            "driver": "Baby Driver"
+        }
+    ],
+    "routes": [
+        {
+            "name": "Mabalacat",
+            "driver": "Baby Driver",
+            "packages": [
+                "1"
+            ]
+        }
+    ]
+}
