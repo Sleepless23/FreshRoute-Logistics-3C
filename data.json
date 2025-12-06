@@ -24,6 +24,21 @@
             "username": "test",
             "password": "test123",
             "role": "dispatcher"
+        },
+        {
+            "username": "Lance",
+            "password": "Lance",
+            "role": "admin"
+        },
+        {
+            "username": "Lance_2",
+            "password": "Lance_2",
+            "role": "dispatcher"
+        },
+        {
+            "username": "Lance_3",
+            "password": "Lance_3",
+            "role": "driver"
         }
     ],
     "packages": [

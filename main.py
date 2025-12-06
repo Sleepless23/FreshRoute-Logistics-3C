@@ -21,10 +21,11 @@ def register():
     
     role_input = int(input("Role: "))
 
+    # lance: (minor debug) removed color coding, interferes with role checking in the json data file.
     roles = {
-        1: "\033[91madmin\033[0m",
-        2: "\033[93mdispatcher\033[0m",
-        3: "\033[92mdriver\033[0m"
+        1: "admin",
+        2: "dispatcher", 
+        3: "driver"
     }
     
     if role_input not in roles:
@@ -33,8 +34,9 @@ def register():
     
     role = roles[role_input]
     
+    # lance: (minor change) fixed the color coding, was displaying incorrectly.
     if add_user(username, password, role):
-        print("\033\[32mAccount created successfully!\033[0m\n")
+        print("\033[32mAccount created successfully!\033[0m\n") 
     else:
         print("Username is taken!\n")
         
@@ -59,7 +61,17 @@ def main():
         for i, m in zip(range(4), login_menu):
             print(f"{i + 1}. {m}")
         
-        choice = int(input(f"{'-' * 80}\nEnter your choice: "))
+         # lance: (minor change) removed int conversion to handle non-integer error handling + strip().
+        choice = input(f"{'-' * 80}\nEnter your choice: ").strip()
+
+        # lance (minor change) added an if statement for error handling - prevents the program from crashing.
+        if choice == "":
+            print("\nNo input detected. Please enter a number.\n")
+            continue
+
+        if not choice.isdigit():
+            print("\nInvalid input. Please enter a valid number.\n")
+            continue
         
         match choice:
             case 1:
