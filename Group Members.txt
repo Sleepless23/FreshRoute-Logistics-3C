@@ -3,4 +3,6 @@ Lagman
 Baluyut
 Morgan
 Jabonete
-Quito 2
+Quito
+Amurao
+Oquias
