@@ -1,4 +1,5 @@
 import json
+import os
 # MorgsBranch admin_menu.py
 data_file = "data.json"
 
@@ -11,7 +12,7 @@ def save_data(data):
         json.dump(data, file, indent=4)
 
 def view_all_packages():
-    print(f"\n\033[45mALL PACKAGES\033[0m\n{'-' * 80}")
+    print(f"\nALL PACKAGES\n{'-' * 80}")
     data = load_data()
     
     if not data["packages"]:
@@ -25,7 +26,7 @@ def view_all_packages():
         print(f"Status: {package['status']}, Route: {package['route_id']}, Driver: {package['driver']}\n{'-' * 80}")
 
 def view_all_routes():
-    print(f"\n\033[42mALL ROUTES\033[0m\n{'-' * 80}")
+    print(f"\nALL ROUTES\n{'-' * 80}")
     data = load_data()
     
     if not data["routes"]:
@@ -37,7 +38,7 @@ def view_all_routes():
         print(f"Packages: {', '.join(route['packages']) if route['packages'] else 'None'}\n{'-' * 80}")
 
 def view_all_users():
-    print(f"\n\033[43mALL USERS\033[0m\n{'-' * 80}")
+    print(f"\nALL USERS\n{'-' * 80}")
     data = load_data()
     
     dispatchers = [u["username"] for u in data["users"] if u["role"] == "dispatcher"]
@@ -47,7 +48,7 @@ def view_all_users():
     print(f"Drivers: {', '.join(drivers) if drivers else 'None'}\n{'-' * 80}")
 
 def generate_report():
-    print("\n\033[46mREPORT\033[0m\n{'-' * 80}")
+    print("\nREPORT\n{'-' * 80}")
     data = load_data()
     
     total_packages = len(data["packages"])
@@ -63,10 +64,28 @@ def generate_report():
         count = len([p for p in data["packages"] if p["driver"] == driver])
         print(f"{driver}: {count} packages assigned")
 
+    print("Create file report:\n1. CSV\n2. PDF")
+    file_report = input("\n Select File Format: ")
+    
+    match file_report:
+        case "1":
+            head1 = "DRIVER"
+            head2 = "PACKAGE_OWNER"
+            head3 = "ASSIGNMENT"
+            _header = [f"{head1:^10}{head2:^20}{head3:^10}  "]
+            os.system(f"echo {_header} > report.csv")
+
+            driver_report = [ur["username"] for ur in data["users"] if ur["role"] == "driver"]
+            for driver in drivers:
+                count_report = len([pr for pr in data["packages"] if pr["driver"] == driver])
+                os.system(f"echo {driver_report}, {count_report} >> report.csv")
+        case _:
+            print("null")
+
 def admin_menu(user):
     while True:
-        print(f"\n\033[41mADMIN MENU ({user.username})\033[0m\n{'-' * 80}")
-        admin_menu_list = ["\033[95mView All Packages\033[0m", "\033[92mView All Routes\033[0m", "\033[93mView Drivers / Dispatchers\033[0m", "\033[94mGenerate Report\033[0m", "\033[91mLogout\033[0m"]
+        print(f"\nADMIN MENU ({user.username})\n{'-' * 80}")
+        admin_menu_list = ["View All Packages", "View All Routes", "View Drivers / Dispatchers", "Generate Report", "Logout"]
         for i, m in zip(range(5), admin_menu_list):
             print(f"{i + 1}. {m}")
         

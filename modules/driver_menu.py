@@ -12,7 +12,7 @@ def save_data(data):
         json.dump(data, file, indent=4)
 
 def view_routes(user):
-    print(f"\n\033[46mYOUR ASSIGNED ROUTES\033[0m\n{'-' * 80}")
+    print(f"\n\YOUR ASSIGNED ROUTES\n{'-' * 80}")
     data = load_data()
     
     if not data["routes"]:
@@ -24,7 +24,7 @@ def view_routes(user):
 
 # NEW: MorgsBranch view_assigned_packages function
 def view_assigned_packages(driver_name):
-    print(f"\n\033[45mYOUR ASSIGNED PACKAGES\033[0m\n{'-' * 80}")
+    print(f"\nYOUR ASSIGNED PACKAGES\n{'-' * 80}")
     data = load_data()
     
     assigned_packages = [p for p in data["packages"] if p["driver"] == driver_name]
@@ -72,8 +72,8 @@ def update_package_status(driver_name):
 
 def driver_menu(user):
     while True:
-        print(f"\n\033[102mDRIVER MENU ({user.username})\033[0m\n{'-' * 80}")
-        driver_menu_list = ["\033[94mView Assigned Routes\033[0m", "\033[95mView Assigned Packages\033[0m", "\033[93mUpdate Package Status\033[0m", "\033[91mLogout\033[0m"]
+        print(f"\nDRIVER MENU ({user.username})\n{'-' * 80}")
+        driver_menu_list = ["View Assigned Routes", "View Assigned Packages", "Update Package Status", "Logout"]
         for i, m in zip(range(4), driver_menu_list):
             print(f"{i + 1}, {m}")
         

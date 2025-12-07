@@ -4,7 +4,7 @@ from modules.dispatcher_menu import dispatcher_menu
 from modules.driver_menu import driver_menu
 
 def register():
-    print(f"\n\033[44mREGISTER STAFF ACCOUNT\033[0m\n{'-' * 80}")
+    print(f"\nREGISTER STAFF ACCOUNT\n{'-' * 80}")
     
     username = input("Enter username: ")
     password = input("Enter password: ")
@@ -29,19 +29,19 @@ def register():
     }
     
     if role_input not in roles:
-        print("\033[31mInvalid role selected.\033[0m\n")
+        print("Invalid role selected.\n")
         return
     
     role = roles[role_input]
     
     # lance: (minor change) fixed the color coding, was displaying incorrectly.
     if add_user(username, password, role):
-        print("\033[32mAccount created successfully!\033[0m\n") 
+        print("Account created successfully!\n") 
     else:
         print("Username is taken!\n")
         
 def login():
-    print(f"\n\033[42mLOGIN\033[0m\n{'-' * 80}")
+    print(f"\nLOGIN\n{'-' * 80}")
     username = input("Enter your username: ")
     password = input("Enter your password: ")
     
@@ -51,27 +51,18 @@ def login():
         print("Invalid credentials.\n")
         return None
     
-    print(f"\nWelcome, \033[92m{user.username}\033[0m! (Role: \033[95m{user.role}\033[0m)")
+    print(f"\nWelcome, {user.username}! (Role: {user.role})")
     return user
 
 def main():
     while True:
-        print(f"\n\033[43mFreshRoute Logistics System\033[0m\n{'-' * 80}")
-        login_menu = ['\033[32mLogin\033[0m', '\033[34mRegister\033[0m', '\033[31mExit\033[0m']
+        print(f"\nFreshRoute Logistics System\n{'-' * 80}")
+        login_menu = ['Login', 'Register', 'Exit']
         for i, m in zip(range(4), login_menu):
             print(f"{i + 1}. {m}")
         
          # lance: (minor change) removed int conversion to handle non-integer error handling + strip().
-        choice = input(f"{'-' * 80}\nEnter your choice: ").strip()
-
-        # lance (minor change) added an if statement for error handling - prevents the program from crashing.
-        if choice == "":
-            print("\nNo input detected. Please enter a number.\n")
-            continue
-
-        if not choice.isdigit():
-            print("\nInvalid input. Please enter a valid number.\n")
-            continue
+        choice = int(input(f"{'-' * 80}\nEnter your choice: "))
         
         match choice:
             case 1:
