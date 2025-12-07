@@ -1,4 +1,15 @@
-menu = ['Login', 'Register', 'Exit']
+import json, csv
 
-for m, i in zip(menu, range(3)):
-    print(f"{i + 1}. {m}")
+data_file = 'data.json'
+
+def load_data():
+    with open(data_file, "r") as file:
+        return json.load(file)
+    
+data = load_data()
+
+users = data["users"]
+if users == "username":
+    username = users
+
+print(username)

@@ -61,7 +61,6 @@ def main():
         for i, m in zip(range(4), login_menu):
             print(f"{i + 1}. {m}")
         
-         # lance: (minor change) removed int conversion to handle non-integer error handling + strip().
         choice = int(input(f"{'-' * 80}\nEnter your choice: "))
         
         match choice:

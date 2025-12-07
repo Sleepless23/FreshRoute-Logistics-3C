@@ -39,6 +39,21 @@
             "username": "Lance_3",
             "password": "Lance_3",
             "role": "driver"
+        },
+        {
+            "username": "Test2",
+            "password": "test1234",
+            "role": "driver"
+        },
+        {
+            "username": "Test3",
+            "password": "test12345",
+            "role": "dispatcher"
+        },
+        {
+            "username": "test4",
+            "password": "test123456",
+            "role": "admin"
         }
     ],
     "packages": [
@@ -64,6 +79,18 @@
             "category": "fragile",
             "status": "Pending",
             "route_id": "Quickie",
+            "driver": "Sean"
+        },
+        {
+            "package_id": "3",
+            "sender_name": "Jeff",
+            "recipient": "Lopez",
+            "phone": "0999999",
+            "address": "Angeles",
+            "weight": 5.0,
+            "category": "large",
+            "status": "Pending",
+            "route_id": "Angeles Route",
             "driver": null
         }
     ],
@@ -77,15 +104,17 @@
         },
         {
             "name": "Quickie",
-            "driver": null,
+            "driver": "Sean",
             "packages": [
                 "2"
             ]
         },
         {
-            "name": "SlowNSteady",
-            "driver": "Sean",
-            "packages": []
+            "name": "Angeles Route",
+            "driver": null,
+            "packages": [
+                "3"
+            ]
         }
     ]
 }

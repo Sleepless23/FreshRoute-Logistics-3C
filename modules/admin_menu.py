@@ -1,15 +1,15 @@
-import json
-import os
+import json, csv
+from fpdf import FPDF
 # MorgsBranch admin_menu.py
-data_file = "data.json"
+data_report = "data.json"
 
 def load_data():
-    with open(data_file, "r") as file:
-        return json.load(file)
+    with open(data_report, "r") as report:
+        return json.load(report)
     
 def save_data(data):
-    with open(data_file, "w") as file:
-        json.dump(data, file, indent=4)
+    with open(data_report, "w") as report:
+        json.dump(data, report, indent=4)
 
 def view_all_packages():
     print(f"\nALL PACKAGES\n{'-' * 80}")
@@ -48,39 +48,48 @@ def view_all_users():
     print(f"Drivers: {', '.join(drivers) if drivers else 'None'}\n{'-' * 80}")
 
 def generate_report():
-    print("\nREPORT\n{'-' * 80}")
+    print(f"\nREPORT\n{'-' * 80}")
     data = load_data()
     
+    drivers = len([u["username"] for u in data["users"] if u["role"] == "driver"])
+    routes = len([r["name"] for r in data["routes"]])
     total_packages = len(data["packages"])
     pending = len([p for p in data["packages"] if p["status"] == "Pending"])
     delivered = len([p for p in data["packages"] if p["status"] == "Delivered"])
     
+    print(f"Drivers: {drivers}")
+    print(f"Routes: {routes}")
     print(f"Total Packages: {total_packages}")
     print(f"Pending Packages: {pending}")
     print(f"Delivered Packages: {delivered}")
 
-    drivers = [u["username"] for u in data["users"] if u["role"] == "driver"]
-    for driver in drivers:
-        count = len([p for p in data["packages"] if p["driver"] == driver])
-        print(f"{driver}: {count} packages assigned")
+    with open("report.csv", "w", newline="") as report:
+        writer = csv.writer(report)
 
-    print("Create file report:\n1. CSV\n2. PDF")
-    file_report = input("\n Select File Format: ")
-    
-    match file_report:
-        case "1":
-            head1 = "DRIVER"
-            head2 = "PACKAGE_OWNER"
-            head3 = "ASSIGNMENT"
-            _header = [f"{head1:^10}{head2:^20}{head3:^10}  "]
-            os.system(f"echo {_header} > report.csv")
+        writer.writerow(["Driver", "Route", "Packages", "Status"])
 
-            driver_report = [ur["username"] for ur in data["users"] if ur["role"] == "driver"]
-            for driver in drivers:
-                count_report = len([pr for pr in data["packages"] if pr["driver"] == driver])
-                os.system(f"echo {driver_report}, {count_report} >> report.csv")
-        case _:
-            print("null")
+        for driver in [u["username"] for u in data["users"] if u["role"] == "driver"]:
+            driver_routes = [r for r in data["routes"] if r["driver"] == driver]
+
+            if not driver_routes:
+                writer.writerow([driver, "None", "None", "None"])
+            else:
+                for route in driver_routes:
+                    package_ids = route["packages"]
+                    statuses = []
+                    for pid in package_ids:
+                        pkg = next((p for p in data["packages"] if p["package_id"] == pid), None)
+                        if pkg:
+                            statuses.append(pkg["status"])
+
+                    writer.writerow([
+                        driver,
+                        route["name"],
+                        ", ".join(package_ids) if package_ids else "None",
+                        ", ".join(statuses) if statuses else "None"
+                    ])
+
+    print("Detailed CSV report saved as report.csv")
 
 def admin_menu(user):
     while True:

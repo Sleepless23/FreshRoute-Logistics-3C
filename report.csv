@@ -1,4 +1,4 @@
-[  DRIVER     PACKAGE_OWNER    ASSIGNMENT  ]
-[Baby Driver, Sean, Lance_3], 1
-[Baby Driver, Sean, Lance_3], 0
-[Baby Driver, Sean, Lance_3], 0
+Driver,Route,Packages,Status
+Baby Driver,Mabalacat,1,Delivered
+Sean,None,None,None
+Lance_3,None,None,None
