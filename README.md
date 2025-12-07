@@ -1,9 +1,78 @@
 # Sean's Branch
 ---
+> [!WARNING]
+> If you are encountering errors in running the program, run py main.py or python main.py under the directory:
+>
+> `\MyBranch\FreshRoute-Logistics-3C>`
+>
+> If errors are related to dependencies enter the command:
+> 1. First option:
+> `pip install -r requirements.txt`
+> 2. Second option:
+> `python -m pip install -r requirements.txt`
+> 3. Third option:
+> `py -m pip install -r requirements.txt`
+---
 ## [Update Log:](#Changes)
-## [12/6/2025 Added MorgsBranch functions to admin_menu.py and driver_menu.py](#1262025)
+## [12/7/2025 Removed string formatting due to list and json conflict, added a feature for creating report.csv for admin under generate_report()](#1272025)
+## [12/6/2025 Added MorgsBranch functions to admin_menu.py and driver_menu.py, Lance, debugged string formatting and error handling](#1262025)
 ## [12/5/2025 Pushed Charles' files from Selrach Branch](#1252025)
 ## Changes
+---
+### 12/7/2025
+---
+- **Added** feature for generate_report(), now creates a report under csv format using csv module.
+- **Imported** fpdf module, currently not being utilized.
+- **New** report.csv file
+- **Appended** New data in data.json file.
+---
+### generate_report()
+---
+> ```
+> def generate_report():
+>     print(f"\nREPORT\n{'-' * 80}")
+>     data = load_data()
+>    
+>     drivers = len([u["username"] for u in data["users"] if u["role"] == "driver"])
+>     routes = len([r["name"] for r in data["routes"]])
+>     total_packages = len(data["packages"])
+>     pending = len([p for p in data["packages"] if p["status"] == "Pending"])
+>     delivered = len([p for p in data["packages"] if p["status"] == "Delivered"])
+>
+>     print(f"Drivers: {drivers}")
+>     print(f"Routes: {routes}")
+>     print(f"Total Packages: {total_packages}")
+>     print(f"Pending Packages: {pending}")
+>     print(f"Delivered Packages: {delivered}")
+>
+>     with open("report.csv", "w", newline="") as report:
+>         writer = csv.writer(report)
+>
+>         writer.writerow(["Driver", "Route", "Packages", "Status"])
+>
+>         for driver in [u["username"] for u in data["users"] if u["role"] == "driver"]:
+>             driver_routes = [r for r in data["routes"] if r["driver"] == driver]
+>
+>             if not driver_routes:
+>                 writer.writerow([driver, "None", "None", "None"])
+>             else:
+>                 for route in driver_routes:
+>                     package_ids = route["packages"]
+>                     statuses = []
+>                     for pid in package_ids:
+>                         pkg = next((p for p in data["packages"] if p["package_id"] == pid), None)
+>                         if pkg:
+>                             statuses.append(pkg["status"])
+>
+>                     writer.writerow([
+>                         driver,
+>                         route["name"],
+>                         ", ".join(package_ids) if package_ids else "None",
+>                         ", ".join(statuses) if statuses else "None"
+>                     ])
+>
+>     print("Detailed CSV report saved as report.csv")
+> ```
 ---
 ### 12/6/2025
 ---
