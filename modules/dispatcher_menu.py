@@ -68,10 +68,10 @@ def create_route():
     
     data["routes"].append(new_route)
     save_data(data)
-    print("Route created successfully!\n")
+    print("Route created successfully!")
 
 def assign_package_to_route():
-    print("Assign package to route")
+    print("\nASSIGN PACKAGE TO ROUTE")
     data = load_data()
     
     package_id = input("Package ID: ")
@@ -146,7 +146,7 @@ def assign_driver_to_route():
             package["driver"] = driver_name
             
     save_data(data)
-    print("Driver assigned to route successfully!\n")
+    print("Driver assigned to route successfully!")
     
 def dispatcher_menu(user):
     while True:

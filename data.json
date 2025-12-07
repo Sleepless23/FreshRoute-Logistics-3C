@@ -25,15 +25,15 @@
             "address": "MCC",
             "weight": 2.5,
             "category": "fragile",
-            "status": "Pending",
+            "status": "Out for Delivery",
             "route_id": "Mabalacat",
-            "driver": "Baby Driver"
+            "driver": "BabyDriver"
         }
     ],
     "routes": [
         {
             "name": "Mabalacat",
-            "driver": "Baby Driver",
+            "driver": "BabyDriver",
             "packages": [
                 "1"
             ]

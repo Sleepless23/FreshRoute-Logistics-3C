@@ -1,7 +1,6 @@
 user.py - handles register and login logic and saves/check in json (data.json)
 main.py - the main app which has the cli based of login and register, added login redirection based on role and run the module of it
 modules: admin_menu.py, dispatcher, and driver.
-only added dispatcher_menu.py
 
 dispatcher_menu.py 
 Register Package - register package details (package id, sender name, recipient, phone, address, weight, and category)
@@ -16,6 +15,11 @@ Add New User - add new user.
 Delete User - delete a user using username.
 View System Data - show the statistics or all the data within the system (e.g. Total users, routes, packages)
 
+driver_menu.py
+View Assign Packages - check if there is existing assigned package to a certain driver.
+Update Package Status - update the status of package (Out for delivery or delivered).
+View Route - check which route the driver is assigned.
+
 File Structure:
 Freshroute-Logistics-3C
     > modules
@@ -29,7 +33,6 @@ Freshroute-Logistics-3C
 
 Needed now:
 admin_menu - view drivers/dispatcher status, generate reports
-driver_menu - view assigned packages, update package status
 
 NOTE: PROMPT THIS FIRST TO RUN!
 

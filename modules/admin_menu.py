@@ -28,10 +28,10 @@ def delete_user():
                 print(f"User '{username}' deleted successfully.\n")
                 return
             
-        print("User not found.\n")
+        print("User not found.")
             
     elif confirmation == 'n':
-        print("Cancelled delete.\n")
+        print("Cancelled delete.")
         return
     
     else:
@@ -67,9 +67,9 @@ def create_user():
     role = roles[role_input]
     
     if add_user(username, password, role):
-        print("User created successfully!\n")
+        print("User created successfully!")
     else:
-        print("Username already taken.\n")
+        print("Username already taken.")
         
 def view_system_data():
     data = load_data()
@@ -83,7 +83,7 @@ def view_system_data():
     
 def admin_menu(user):
     while True:
-        print("\nADMIN MENU")
+        print("\nAdmin Menu")
         print("1. View All Users")
         print("2. Add New User")
         print("3. Delete User")
