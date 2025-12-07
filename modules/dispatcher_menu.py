@@ -1,17 +1,8 @@
 import json
-
-data_file = "data.json"
-
-def load_data():
-    with open(data_file, "r") as file:
-        return json.load(file)
-    
-def save_data(data):
-    with open(data_file, "w") as file:
-        json.dump(data, file, indent=4)
+from user import load_data, save_data
         
 def register_package():
-    print("REGISTER PACKAGE")
+    print("\nREGISTER PACKAGE")
     package_id = input("Package ID: ")
     sender_name = input("Sender Name: ")
     recipient = input("Recepient Name: ")
@@ -45,7 +36,7 @@ def register_package():
     print("Package registered successfully!")
     
 def view_packages():
-    print("LIST OF PACKAGES")
+    print("\nLIST OF PACKAGES")
     data = load_data()
     
     if not data["packages"]:
@@ -60,7 +51,7 @@ def view_packages():
         
 
 def create_route():
-    print("CREATE ROUTE")
+    print("\nCREATE ROUTE")
     route_name = input("Route Name: ")
     data = load_data()
     
@@ -116,7 +107,7 @@ def assign_package_to_route():
     print("Package assigned to this route successfully!")
     
 def assign_driver_to_route():
-    print("ASSIGN DRIVER TO ROUTE")
+    print("\nASSIGN DRIVER TO ROUTE")
     data = load_data()
     route_name = input("Route Name: ")
     driver_name = input("Driver Name: ")
@@ -159,7 +150,7 @@ def assign_driver_to_route():
     
 def dispatcher_menu(user):
     while True:
-        print(f"\nDispatcher Menu ({user.username})")
+        print(f"\nDispatcher Menu")
         print("1. Register Package")
         print("2. View All Packages")
         print("3. Create Route")
@@ -180,7 +171,7 @@ def dispatcher_menu(user):
         elif choice == 5:
             assign_driver_to_route()
         elif choice == 6:
-            print("Logging out...")
+            print("Logging out...\n")
             break
         else:
             print("Invalid Choice!\n")

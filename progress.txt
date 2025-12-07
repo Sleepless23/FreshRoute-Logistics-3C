@@ -10,6 +10,12 @@ Create Route - create a route for delivery route
 Assign Package to Route - assign package using id and route name
 Assign Driver to Route - assign driver using driver name, package id, and route name
 
+admin_menu.py
+View Users - print lists of users.
+Add New User - add new user.
+Delete User - delete a user using username.
+View System Data - show the statistics or all the data within the system (e.g. Total users, routes, packages)
+
 File Structure:
 Freshroute-Logistics-3C
     > modules
@@ -22,7 +28,7 @@ Freshroute-Logistics-3C
     user.py
 
 Needed now:
-admin_menu - view all packages, view all routes, view drivers/dispatcher, generate reports
+admin_menu - view drivers/dispatcher status, generate reports
 driver_menu - view assigned packages, update package status
 
 NOTE: PROMPT THIS FIRST TO RUN!
