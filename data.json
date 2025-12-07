@@ -14,6 +14,21 @@
             "username": "BabyDriver",
             "password": "driver123",
             "role": "driver"
+        },
+        {
+            "username": "Lance",
+            "password": "Lance",
+            "role": "admin"
+        },
+        {
+            "username": "Lance_2",
+            "password": "Lance_2",
+            "role": "dispatcher"
+        },
+        {
+            "username": "Lance_3",
+            "password": "Lance_3",
+            "role": "driver"
         }
     ],
     "packages": [
@@ -28,6 +43,19 @@
             "status": "Out for Delivery",
             "route_id": "Mabalacat",
             "driver": "BabyDriver"
+        },
+        {
+            "package_id": "2",
+            "sender_name": "Lance",
+            "recipient": "Sato",
+            "phone": "63+ 0969",
+            "address": "Mabalacat",
+            "weight": 3.89,
+            "category": "fragile",
+            "status": "Delivered",
+            "route_id": "Mabalacat; Sato",
+            "driver": "Lance_3",
+            "delivery_note": "Left it on the front door \ud83d\udc4d"
         }
     ],
     "routes": [
@@ -36,6 +64,13 @@
             "driver": "BabyDriver",
             "packages": [
                 "1"
+            ]
+        },
+        {
+            "name": "Mabalacat; Sato",
+            "driver": "Lance_3",
+            "packages": [
+                "2"
             ]
         }
     ]
