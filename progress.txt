@@ -8,12 +8,17 @@ View Packages - open the json file and retrieve data
 Create Route - create a route for delivery route
 Assign Package to Route - assign package using id and route name
 Assign Driver to Route - assign driver using driver name, package id, and route name
+View Delayed Packages - show the packages that aren't delivered in the expected date.
 
 admin_menu.py
 View Users - print lists of users.
 Add New User - add new user.
 Delete User - delete a user using username.
 View System Data - show the statistics or all the data within the system (e.g. Total users, routes, packages)
+View Package Status - show the packages in sorted way such as Pendings, Out for Deliveries, Delivered, and Delayed.
+View Delayed Packages - show the packages that aren't delivered in the expected date.
+Export Packages to CSV - export packages report into CSV.
+Export Packages to PDF - export packages report into PDF.
 
 driver_menu.py
 View Assign Packages - check if there is existing assigned package to a certain driver.
@@ -32,9 +37,11 @@ Freshroute-Logistics-3C
     user.py
 
 Needed now:
-admin_menu - view drivers/dispatcher status, generate reports
+if needed - NGROK API INTERGRATED and CLI design.
 
 NOTE: PROMPT THIS FIRST TO RUN!
 
 cd <folder_name>
 python main.py
+
+pip install fpdf

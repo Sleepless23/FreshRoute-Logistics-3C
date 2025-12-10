@@ -1,5 +1,6 @@
 import json
 from user import load_data, save_data
+from datetime import datetime, timedelta
         
 def register_package():
     print("\nREGISTER PACKAGE")
@@ -10,6 +11,7 @@ def register_package():
     address = input("Recipient Address: ")
     weight = float(input("Package Weight(kg): "))
     category = input("Category (ex. fragile/perishable/large): ")
+    expected_date = input("Expected Delivery Date (YYYY-MM-DD): ")
     
     data = load_data()
     
@@ -28,7 +30,10 @@ def register_package():
         "category": category,
         "status": "Pending",
         "route_id": None,
-        "driver": None
+        "driver": None,
+        "expected_date": expected_date,
+        "date_registered": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "delivered_date": None
     }
     
     data["packages"].append(new_package)    
@@ -103,6 +108,10 @@ def assign_package_to_route():
     
     route["packages"].append(package_id)
     package["route_id"] = route_name
+    
+    if route.get("driver"):
+        package["driver"] = route["driver"]
+        
     save_data(data)
     print("Package assigned to this route successfully!")
     
@@ -145,8 +154,33 @@ def assign_driver_to_route():
         if package:
             package["driver"] = driver_name
             
+    if route.get("driver"):
+        package["driver"] = route["driver"]
+            
     save_data(data)
     print("Driver assigned to route successfully!")
+    
+def view_delayed_packages():
+    print("\nDELAYED PACKAGES")
+    data = load_data()
+    
+    delayed_found = False
+    today = datetime.now().date()
+    
+    for package in data["packages"]:
+        expected = package.get("expected_date")
+        delivery = package.get("delivery_date")
+        
+        if expected:
+            expected_date = datetime.strptime(expected, "%Y-%m-%d").date()
+
+            if today > expected_date and delivery is None:
+                delayed_found = True
+                print(f"ID: {package['package_id']} | Expected: {expected} | Status: {package['status']}")
+                print(f"Recipient: {package['recipient']} | Address: {package['address']}\n")
+                
+    if not delayed_found:
+        print("No delayed packages.\n")
     
 def dispatcher_menu(user):
     while True:
@@ -156,7 +190,8 @@ def dispatcher_menu(user):
         print("3. Create Route")
         print("4. Assign Package to Route")
         print("5. Assign Driver to Route")
-        print("6. Logout")
+        print("6. View Delayed Packages")
+        print("7. Logout")
         
         choice = int(input("Enter your choice: "))
         
@@ -171,6 +206,8 @@ def dispatcher_menu(user):
         elif choice == 5:
             assign_driver_to_route()
         elif choice == 6:
+            view_delayed_packages()
+        elif choice == 7:
             print("Logging out...\n")
             break
         else:

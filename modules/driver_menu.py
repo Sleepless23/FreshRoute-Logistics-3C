@@ -1,5 +1,6 @@
 import json
 from user import load_data, save_data
+from datetime import datetime
 
 def view_assign_packages(username):
     print("\nYOUR ASSIGNED PACKAGES")
@@ -46,7 +47,8 @@ def update_package_status(username):
         package["status"] = "Delivered"
         note = input("Enter delivery note: ")
         package["delivery_note"] = note
-        
+        package["actual_delivery_date"] = datetime.now().strftime("%Y-%m-%d")
+
     else:
         print("Invalid option.")
         return
