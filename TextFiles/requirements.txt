@@ -1,0 +1,35 @@
+Base:
+    - packages should be sorted and recorded automatically.
+    - there's should be sort of routes which shows less traffic/efficent route.
+    - delivery progress should be shown where they currently are (real-time).
+    - should has admin interface/page to control which holds which.
+    - feedback.
+
+Goal:
+    - delivery route and package tracking system
+
+Requirements:
+    > Package Registration
+        - create/pack a new package
+        - sender information
+        - delivery route
+        - edit/delete package details
+    
+    > Route Management
+        - create sorting facility
+        - assign package on route
+        - driver per route
+        - list of packages per sorting facility
+    
+    > Delivery Tracking
+        - delivery status (pending, ofd, delivered)
+        - timestap when the status updated
+        - optional: proof of delivery (note)
+    
+    > Reporting
+        - total packages delivered per day
+        - delivery performance (rating/star)
+        - delayed deliveries (reason)
+        - fuel usage based on route (per km)
+        - dictionary of problematic delivery addresses
+        - reports should exported to CSV/PDF

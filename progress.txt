@@ -1,0 +1,47 @@
+user.py - handles register and login logic and saves/check in json (data.json)
+main.py - the main app which has the cli based of login and register, added login redirection based on role and run the module of it
+modules: admin_menu.py, dispatcher, and driver.
+
+dispatcher_menu.py 
+Register Package - register package details (package id, sender name, recipient, phone, address, weight, and category)
+View Packages - open the json file and retrieve data
+Create Route - create a route for delivery route
+Assign Package to Route - assign package using id and route name
+Assign Driver to Route - assign driver using driver name, package id, and route name
+View Delayed Packages - show the packages that aren't delivered in the expected date.
+
+admin_menu.py
+View Users - print lists of users.
+Add New User - add new user.
+Delete User - delete a user using username.
+View System Data - show the statistics or all the data within the system (e.g. Total users, routes, packages)
+View Package Status - show the packages in sorted way such as Pendings, Out for Deliveries, Delivered, and Delayed.
+View Delayed Packages - show the packages that aren't delivered in the expected date.
+Export Packages to CSV - export packages report into CSV.
+Export Packages to PDF - export packages report into PDF.
+
+driver_menu.py
+View Assign Packages - check if there is existing assigned package to a certain driver.
+Update Package Status - update the status of package (Out for delivery or delivered).
+View Route - check which route the driver is assigned.
+
+File Structure:
+Freshroute-Logistics-3C
+    > modules
+        admin_menu.py
+        dispatcher_menu.py
+        driver_menu.py
+
+    data.json
+    main.py
+    user.py
+
+Needed now:
+if needed - NGROK API INTERGRATED and CLI design.
+
+NOTE: PROMPT THIS FIRST TO RUN!
+
+cd <folder_name>
+python main.py
+
+pip install fpdf

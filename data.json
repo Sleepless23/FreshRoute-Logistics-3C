@@ -1,0 +1,95 @@
+{
+    "users": [
+        {
+            "username": "Charles",
+            "password": "charles123",
+            "role": "dispatcher"
+        },
+        {
+            "username": "admin",
+            "password": "admin",
+            "role": "admin"
+        },
+        {
+            "username": "BabyDriver",
+            "password": "driver123",
+            "role": "driver"
+        }
+    ],
+    "packages": [
+        {
+            "package_id": "1",
+            "sender_name": "Sean",
+            "recipient": "Patrice",
+            "phone": "099123123",
+            "address": "MCC",
+            "weight": 2.5,
+            "category": "fragile",
+            "status": "Delivered",
+            "route_id": "Mabalacat",
+            "driver": "BabyDriver",
+            "date_registered": "2025-01-10 14:32:45",
+            "delivered_date": "2025-12-10 22:37:16",
+            "delivery_note": "Hehe"
+        },
+        {
+            "package_id": "2",
+            "sender_name": "Lacsina",
+            "recipient": "Quito",
+            "phone": "099124124124",
+            "address": "Tabi",
+            "weight": 19.0,
+            "category": "Fragile",
+            "status": "Delivered",
+            "route_id": "Mabalacat",
+            "driver": "BabyDriver",
+            "expected_date": "2025-12-11",
+            "date_registered": "2025-12-10 22:31:03",
+            "delivered_date": "2025-12-10 22:37:37",
+            "delivery_note": "Hehe"
+        },
+        {
+            "package_id": "3",
+            "sender_name": "Sean",
+            "recipient": "Quito",
+            "phone": "095125125",
+            "address": "Dyan",
+            "weight": 1.0,
+            "category": "Large",
+            "status": "Delivered",
+            "route_id": "Mabalacat",
+            "driver": "BabyDriver",
+            "expected_date": "2025-12-9",
+            "date_registered": "2025-12-10 22:38:41",
+            "delivery_note": "Hehe",
+            "actual_delivery_date": "2025-12-10"
+        },
+        {
+            "package_id": "4",
+            "sender_name": "Jabai",
+            "recipient": "Morgy",
+            "phone": "09696912",
+            "address": "Omsim",
+            "weight": 2.0,
+            "category": "Fragile",
+            "status": "Pending",
+            "route_id": "Mabalacat",
+            "driver": "BabyDriver",
+            "expected_date": "2025-12-25",
+            "date_registered": "2025-12-10 23:18:16",
+            "delivered_date": null
+        }
+    ],
+    "routes": [
+        {
+            "name": "Mabalacat",
+            "driver": "BabyDriver",
+            "packages": [
+                "1",
+                "2",
+                "3",
+                "4"
+            ]
+        }
+    ]
+}
